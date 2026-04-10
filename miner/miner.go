@@ -18,7 +18,7 @@ func Worker(ctx context.Context, wg *sync.WaitGroup, jobs <-chan int, result cha
 			return
 		case j, ok := <-jobs:
 			if !ok {
-				return // канал закрыт
+				return
 			}
 			result <- j * 3
 			time.Sleep(time.Second)
